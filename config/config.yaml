@@ -1,0 +1,53 @@
+# SPEAK Configuration File
+
+# Data Parameters
+data:
+  sample_rate: 22050
+  hop_length: 256
+  win_length: 1024
+  n_mels: 80
+  n_fft: 1024
+
+# Model Parameters
+model:
+  hidden_size: 512
+  num_layers: 6
+  dropout: 0.1
+  attention_heads: 8
+
+# Training Parameters
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  num_epochs: 100
+  early_stopping_patience: 10
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
+
+# Evaluation Parameters
+evaluation:
+  test_batch_size: 16
+  metrics:
+    - ssim
+    - cosine_similarity
+    - wer
+    - per
+    - mos
+
+# Paths
+paths:
+  data_dir: "data"
+  model_dir: "models"
+  results_dir: "results"
+  log_dir: "logs"
+
+# Feature Extraction
+features:
+  mfcc:
+    n_mfcc: 13
+    n_mels: 80
+  formant:
+    max_formants: 3
+  f0:
+    f0_min: 50
+    f0_max: 500 
